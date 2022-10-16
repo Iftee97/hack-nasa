@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react"
 
 function App() {
+  const hackTextArr = [
+    'starting hack!!!',
+    ' 10% done...',
+    ' 25% done...',
+    ' 50% done...',
+    ' 75% done...',
+    ' 100% done!!!'
+  ]
+
+  const [isOn, setIsOn] = useState(false)
+  const [hackText, setHackText] = useState([])
+
+  const handleClick = () => {
+    setIsOn(!isOn)
+    setHackText('')
+  }
+
+  useEffect(() => {
+    if (isOn) {
+      hackTextArr.forEach((text, index) => {
+        let interval = setTimeout(() => {
+          setHackText(prevText => [...prevText, text])
+        }, 1000 * index)
+
+        // setInterval clean up
+        return () => {
+          clearInterval(interval)
+        }
+      })
+    }
+  }, [isOn])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div style={{ margin: '2rem' }}>
+      <h1>Hack NASA</h1>
+      <button onClick={handleClick}>start / stop</button>
+      {/* {isOn && (
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          <strong>{hackText}</strong>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      )} */}
+      {isOn && hackText.length > 0 && hackText.map((text, index) => (
+        <p key={index}>
+          <strong>{text}</strong>
+        </p>
+      ))}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
