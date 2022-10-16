@@ -15,7 +15,7 @@ function App() {
 
   const handleClick = () => {
     setIsOn(!isOn)
-    setHackText('')
+    setHackText([])
   }
 
   useEffect(() => {
