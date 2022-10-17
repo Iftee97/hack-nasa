@@ -3,11 +3,11 @@ import { useState, useEffect } from "react"
 function App() {
   const hackTextArr = [
     'starting hack!!!',
-    ' 10% done...',
-    ' 25% done...',
-    ' 50% done...',
-    ' 75% done...',
-    ' 100% done!!!'
+    '10% done...',
+    '25% done...',
+    '50% done...',
+    '75% done...',
+    '100% done -- NASA HACKED ! ! !',
   ]
 
   const [isOn, setIsOn] = useState(false)
@@ -37,11 +37,6 @@ function App() {
     <div style={{ margin: '2rem' }}>
       <h1>Hack NASA</h1>
       <button onClick={handleClick}>start / stop</button>
-      {/* {isOn && (
-        <p>
-          <strong>{hackText}</strong>
-        </p>
-      )} */}
       {isOn && hackText.length > 0 && hackText.map((text, index) => (
         <p key={index}>
           <strong>{text}</strong>
