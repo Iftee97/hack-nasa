@@ -37,11 +37,6 @@ function App() {
     <div style={{ margin: '2rem' }}>
       <h1>Hack NASA</h1>
       <button onClick={handleClick}>start / stop</button>
-      {/* {isOn && (
-        <p>
-          <strong>{hackText}</strong>
-        </p>
-      )} */}
       {isOn && hackText.length > 0 && hackText.map((text, index) => (
         <p key={index}>
           <strong>{text}</strong>
