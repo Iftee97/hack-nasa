@@ -7,7 +7,7 @@ function App() {
     ' 25% done...',
     ' 50% done...',
     ' 75% done...',
-    ' 100% done!!!'
+    ' 100% done!!! -- NASA HACKED'
   ]
 
   const [isOn, setIsOn] = useState(false)
